@@ -1,0 +1,37 @@
+Distance(Point p1, Point p2){
+	distance = squareroot((p1.x-p2.x)*(p1.x-p2.x)+(p1.y-p2.y)*(p1.y-p2.y)
+	return distance
+}
+
+// S is set of points given point set in 2-D plane
+
+Min_Enc_Circle(S){
+	diameter = -1, diaEndPt1 = -1, diaEndPt2 = -1
+	if(length(S)>1)
+		for i <- 1 to length(S)-1
+			for j <- i+1 to length(S)
+				if(Distance(S[i],S[j]) > diameter)
+					diameter = Distance(S[i],S[j])
+					diaEndPt1 = i
+					diaEndPt2 = j
+		center = ((S[diaEndPt1].x + S[diaEndPt2].x)/2, (S[diaEndPt1].y + S[diaEndPt2].y)/2)
+		radius = diameter/2
+	else
+		center = (S[0].x, S[0].y)
+		radius = 0
+}
+
+
+
+for Min_Enc_Circle function
+time complxity = n+n-1+.....+1+k
+			   = (n(n-1)/2)+k
+			   = n^2
+			   = O(n^2)
+
+for Distance function
+time complxity = k
+			   = O(k)
+
+Overall 
+time complexity = O(n^2)

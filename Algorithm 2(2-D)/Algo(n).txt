@@ -1,0 +1,52 @@
+Distance(Point p1, Point p2){
+	distance = squareroot((p1.x-p2.x)*(p1.x-p2.x)+(p1.y-p2.y)*(p1.y-p2.y)
+	return distance
+}
+
+// S is set of points given point set in 2-D plane
+
+FindCenter(Point p1, Point p2){
+	x_center = (p1.x+p2.x)/2
+	y_center = (p1.y+p2.y)/2
+	center = (x_center, y_center)
+	return center 
+}
+
+Min_Enc_Circle(S){
+	if(length(S)=1)
+		center = (S[0].x, S[0].y)
+		radius = 0
+	else
+		diameter = Distance(S[1],S[2])
+		diaEndPt1 = 1, diaEndPt2 = 2
+		for i <- 3 to length(S)
+			center = FindCenter(S[diaEndpt1],S[diaEndpt2])
+			diameter = Distance(S[diaEndpt1],S[diaEndpt2])
+			if(Distance(center, S[i])>diameter)
+				d1 = Distance(S[diaEndpt1],s[i])
+				d2 = Distance(S[diaEndpt2],s[i])
+				if(d1>d2)
+					diaEndPt2 = i
+				elae
+					diaEndPt1 = i
+
+		center = FindCenter(S[diaEndpt1],S[diaEndpt2])
+		radius = Distance(S[diaEndpt1],S[diaEndpt2])/2
+}
+
+
+for FindCenter function
+time complexity = k1
+                = O(k1)
+
+for Distance function
+time complexity = k2
+                = O(k2)
+
+for Min_Enc_Circle function
+time complexity = n-1
+                = O(n-1)
+                = O(n)
+
+So, Overall
+time complexity = O(n)
